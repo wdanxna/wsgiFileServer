@@ -8,7 +8,7 @@ PORT = 8051
 router = boxrouter(('/upload',boxlib.upload),
                    ('/download',boxlib.download),
                    ('/move',boxlib.move),
-                   ('/fetchconfig',boxlib.fetchconfig),
+                   ('/getpatrolconfig',boxlib.getpatrolconfig),
                    ('/gettrackfile',boxlib.gettrackfile),
                    ('/getthumbnails',boxlib.get_thumbnails))
 

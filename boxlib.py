@@ -2,6 +2,7 @@ import sys
 import os
 import re
 import json
+from cStringIO import StringIO
 from FormHandler import FormHandler
 from FileHandler import FileHandler
 
@@ -139,8 +140,58 @@ def move(environ,start_response):
     start_response('200 OK',[("Content-Type","text/html"),("Content-Length",length)])
     return [body]
 
-def fetchconfig(environ,start_response):
-    pass
+def getpatrolconfig(environ,start_response):
+    '''
+    1. grab files list in config folder.
+    2. sort the list.
+    3. binary search for nearest file.
+    3. return file content.
+    '''
+
+
+    #This is binary search based on integer
+    def binsearchpos(arr,key,start,end):
+        midpos = (end + start + 1)/2
+        mid = arr[midpos]
+        if mid == key:
+            return midpos
+        elif mid < key:
+            #search right
+            if midpos+1 > end:
+                return end
+            else:
+                return binsearchpos(arr,key,midpos+1,end)
+        elif mid > key:
+            #search left
+            if midpos-1 < start:
+                return start-1
+            else:
+                return binsearchpos(arr,key,start,midpos-1)
+
+    formdatas = formhandler.getFormDatas(environ)
+    time = formdatas.split('=')[1]
+    time = int(time[:-4].replace('-',''))
+    #todo:validation the time format as yyyy-mm-dd
+    if time:
+        dir = file_absolute_path+'Security/Patrol/config/'
+        #grab list from folder
+        list = os.listdir(dir)
+        #filter list
+        list = [elem for elem in list if elem[-4:]==".txt"]
+        #sorted...which is easy
+        list.sort()
+        callist = [int((elem[:-4]).replace('-','')) for elem in list]
+        pos = binsearchpos(callist,time,0,len(list)-1)
+
+        #handle the filename to download app
+        filename = list[pos]
+        downloadpath = "PATH=Security/Patrol/config/"+filename
+        environ['wsgi.input'] = StringIO(downloadpath)
+        environ['CONTENT_LENGTH'] = str(len(downloadpath))
+        return download(environ,start_response)
+
+    start_response('500 ERROR',[("Content-Type","text/html"),('Access-Control-Allow-Origin','*')])
+    return ['error']
 
 def gettrackfile(environ,start_response):
     return download(environ,start_response)
