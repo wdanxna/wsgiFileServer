@@ -71,10 +71,7 @@ class FormHandler:
         #print 'this is form: '+ fileFormDatas
         #print 'end of form'
         file_name = file_name_list[0]
-        try:
-            file_name = urllib.unquote(file_name)
-        finally:
-            return file_name
+        return file_name
 
     def getItemName(self, itemFormDatas):
         item_name_list = re.findall(r'.*name="(.*)"', itemFormDatas)

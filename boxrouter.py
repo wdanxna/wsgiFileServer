@@ -18,7 +18,7 @@ class boxrouter:
                 return app(environ, start_response)
 
             if path.startswith(ROOT_PATH+prefix):
-                environ['PATH_INFO'] = path[len(prefix):]
+                environ['PATH_INFO'] = path[len(ROOT_PATH)+1:]
                 decoder = boxdecoder(app)
                 return decoder(environ,start_response)
 

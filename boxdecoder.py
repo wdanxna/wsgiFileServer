@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 import urllib
 from cStringIO import StringIO
 '''
@@ -17,7 +18,16 @@ class boxdecoder(object):
             length = int(environ.get('CONTENT_LENGTH','0'))
             meta = environ['wsgi.input'].read(length)
             #try to decode percentage
-            meta = urllib.unquote(meta)
+            if environ["PATH_INFO"]=="upload":
+                #handle filename instead all meta data
+                file_name_list = re.findall(r'Content-Disposition.*name="file"; filename="(.*)"', meta)
+                origin_file_name = file_name_list[0]
+                fix_file_name = urllib.unquote(origin_file_name)
+                meta = meta.replace(origin_file_name,fix_file_name)
+            else:
+                meta = urllib.unquote(meta)
+                print 'normal meta fix: '+meta
+
             environ['wsgi.input'] = StringIO(meta)
             environ['CONTENT_LENGTH'] = str(len(meta))
             return environ

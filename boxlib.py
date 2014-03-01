@@ -26,7 +26,7 @@ def download(environ,start_response):
     response_length = ''
     formdatas = formhandler.getFormDatas(environ)
     formdatalist = formdatas.split('&')
-    print formdatas
+    print 'real datas::: '+formdatas
     path = ''
     for element in formdatalist:
         key, value = element.split('=')
@@ -43,6 +43,7 @@ def download(environ,start_response):
         dir = file_absolute_path+path
         try:
             list = os.listdir(dir)
+            list = [elem for elem in list if not elem[0]=="."]
         except os.error:
             response_body = '{\"status\": \"0\",\"action\":\"/service/download\",\"description\":' \
                             + 'No permission to list directory' + '}'
@@ -63,6 +64,8 @@ def download(environ,start_response):
             #no such file or permission deny
             response_body = '{\"status\": \"0\",\"action\":\"/service/download\",\"description\":' \
                             + 'No such file or permission deny' + '}'
+            start_response('404 Not Found',[('Content-Type','text/html'),('Content-Length',str(len(response_body))),('Access-Control-Allow-Origin','*')])
+            return response_body
 
     if not response_length:
         response_length = str(len(response_body))
@@ -75,7 +78,6 @@ def get_thumbnails(environ,start_response):
 
     formdatas = formhandler.getFormDatas(environ)
     formdatalist = formdatas.split('&')
-
     path = ''
     for element in formdatalist:
         key, value = element.split('=')
