@@ -44,6 +44,15 @@ def download(environ,start_response):
         try:
             list = os.listdir(dir)
             list = [elem for elem in list if not elem[0]=="."]
+            for name in list:
+                #detect broken symlink
+                linkpath = dir+name
+                if os.path.islink(linkpath):
+                    target_path = os.readlink(linkpath)
+                    if not os.path.exists(target_path):
+                        list.remove(name)
+                        os.unlink(linkpath)
+
         except os.error:
             response_body = '{\"status\": \"0\",\"action\":\"/service/download\",\"description\":' \
                             + 'No permission to list directory' + '}'
@@ -53,7 +62,10 @@ def download(environ,start_response):
     else:
         #it is file, try to download it.
         filepath = file_absolute_path+path
-        print filepath
+        if os.path.islink(filepath):
+            link_path = os.readlink(filepath)
+            if not os.path.exists(link_path):
+                os.unlink(filepath)
         try:
             file_size = os.path.getsize(filepath)
             response_length = str(file_size)
@@ -119,7 +131,6 @@ def get_thumbnails(environ,start_response):
                                [('Content-Type','text/html'),('Access-Control-Allow-Origin','*')])
                 return ['{\"status\": \"0\",\"action\":\"/service/getthumbnails\",\"description\":file not exists}']
 
-        print environ
         return download(environ,start_response)
 
     else:
@@ -141,6 +152,23 @@ def move(environ,start_response):
     length = str(len(body))
     start_response('200 OK',[("Content-Type","text/html"),("Content-Length",length)])
     return [body]
+
+def delete(environ, start_response):
+    form_data = formhandler.getFormDatas(environ)
+    form_data_list = form_data.split('&')
+
+    print form_data_list
+
+    for element in form_data_list:
+        id, filename = element.split('=')
+        filehandler.deleteFile(file_absolute_path+filename)
+        print "delete: "+file_absolute_path+filename
+
+    body = '{\"status\": \"1\",\"action\":\"/service/delete\"}'
+    length = str(len(body))
+    start_response('200 OK', [("Content-Type","text/html"),("Content-Length",length)])
+    return [body]
+
 
 def getpatrolconfig(environ,start_response):
     '''

@@ -39,12 +39,14 @@ class FileHandler:
         file_upload.flush()
         file_upload.close()
 
-    def deleteFile(self, file_path, file_name):
-        file_path_name = file_path + file_name
+    def deleteFile(self, file_path):
         #if os.path.exists(file_path_name):
             #os.remove(file_path_name)
         try:
-            os.remove(file_path_name)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+            else:
+                os.system('rm -r '+file_path.replace(' ','\ '))
         except OSError, e: # this would be "except OSError as e:" in python 3.x
             if e.errno != errno.ENOENT: # errno.ENOENT = no such file or directory
                 raise # re-raise exception if a different error occured
