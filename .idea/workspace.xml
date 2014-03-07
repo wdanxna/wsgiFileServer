@@ -26,7 +26,7 @@
       <file leaf-file-name="newapptest.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newapptest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+            <state line="12" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="boxlib.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/boxlib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="35" selection-start="2477" selection-end="2477" vertical-scroll-proportion="0.19417475" vertical-offset="885" max-vertical-offset="3480">
+            <state line="16" column="35" selection-start="436" selection-end="436" vertical-scroll-proportion="0.3090615" vertical-offset="49" max-vertical-offset="3480">
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -55,10 +55,8 @@
       <file leaf-file-name="boxdecoder.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/boxdecoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="795">
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state line="22" column="54" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,7 +64,7 @@
       <file leaf-file-name="FormHandler.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FormHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="0" selection-start="2195" selection-end="2195" vertical-scroll-proportion="0.0" vertical-offset="657" max-vertical-offset="1320">
+            <state line="73" column="0" selection-start="2195" selection-end="2195" vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -75,7 +73,7 @@
       <file leaf-file-name="genericpath.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="20" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1650">
+            <state line="29" column="20" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1665">
               <folding />
             </state>
           </provider>
@@ -84,7 +82,7 @@
       <file leaf-file-name="FileHandler.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FileHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="39" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
+            <state line="18" column="39" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1500">
               <folding />
             </state>
           </provider>
@@ -103,17 +101,17 @@
         <option value="/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py" />
         <option value="$PROJECT_DIR$/boxrouter.py" />
         <option value="$PROJECT_DIR$/FormHandler.py" />
-        <option value="$PROJECT_DIR$/boxdecoder.py" />
         <option value="$PROJECT_DIR$/newapptest.py" />
         <option value="$PROJECT_DIR$/FileHandler.py" />
         <option value="$PROJECT_DIR$/boxlib.py" />
+        <option value="$PROJECT_DIR$/boxdecoder.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="637" />
-    <option name="y" value="22" />
-    <option name="width" value="1911" />
+    <option name="x" value="260" />
+    <option name="y" value="172" />
+    <option name="width" value="1865" />
     <option name="height" value="1058" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -330,7 +328,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="637" y="22" width="1911" height="1058" extended-state="6" />
+    <frame x="260" y="172" width="1865" height="1058" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -341,10 +339,10 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997923" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917964" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32917964" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="111" y="122" width="1658" height="858" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -362,7 +360,9 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="5" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py">
@@ -425,13 +425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FileHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="39" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FormHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="0" selection-start="2195" selection-end="2195" vertical-scroll-proportion="0.0" vertical-offset="657" max-vertical-offset="1320">
@@ -439,12 +432,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/boxdecoder.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/596071422/posix.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="795">
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state line="628" column="4" selection-start="14819" selection-end="14819" vertical-scroll-proportion="0.33333334" vertical-offset="9214" max-vertical-offset="22005" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FileHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="39" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -455,16 +451,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/596071422/posix.py">
+    <entry file="file://$PROJECT_DIR$/boxdecoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="628" column="4" selection-start="14819" selection-end="14819" vertical-scroll-proportion="0.33333334" vertical-offset="9214" max-vertical-offset="22005">
+        <state line="22" column="54" selection-start="635" selection-end="635" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/boxlib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="35" selection-start="2477" selection-end="2477" vertical-scroll-proportion="0.19417475" vertical-offset="885" max-vertical-offset="3480">
+        <state line="16" column="35" selection-start="436" selection-end="436" vertical-scroll-proportion="0.3090615" vertical-offset="49" max-vertical-offset="3480">
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

@@ -19,11 +19,13 @@ class boxdecoder(object):
             meta = environ['wsgi.input'].read(length)
             #try to decode percentage
             if environ["PATH_INFO"]=="upload":
+                print meta
                 #handle filename instead all meta data
                 file_name_list = re.findall(r'Content-Disposition.*name="file"; filename="(.*)"', meta)
-                origin_file_name = file_name_list[0]
-                fix_file_name = urllib.unquote(origin_file_name)
-                meta = meta.replace(origin_file_name,fix_file_name)
+                if len(file_name_list) > 0:
+                    origin_file_name = file_name_list[0]
+                    fix_file_name = urllib.unquote(origin_file_name)
+                    meta = meta.replace(origin_file_name,fix_file_name)
             else:
                 meta = urllib.unquote(meta)
                 print 'normal meta fix: '+meta
