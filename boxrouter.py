@@ -8,7 +8,7 @@ class boxrouter:
         #reciving (prefix,app) tuples
         self._routes = args
 
-    def __call__(self,environ, start_response):
+    def start_route(self,environ, start_response):
 
         path = environ['PATH_INFO']
 
