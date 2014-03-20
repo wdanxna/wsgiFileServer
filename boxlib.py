@@ -26,7 +26,7 @@ def download(environ,start_response):
     response_length = ''
     formdatas = formhandler.getFormDatas(environ)
     formdatalist = formdatas.split('&')
-    print 'real datas::: '+formdatas
+    #print 'real datas::: '+formdatas
     path = ''
     for element in formdatalist:
         key, value = element.split('=')
@@ -157,7 +157,7 @@ def delete(environ, start_response):
     form_data = formhandler.getFormDatas(environ)
     form_data_list = form_data.split('&')
 
-    print form_data_list
+    #print form_data_list
 
     for element in form_data_list:
         id, filename = element.split('=')

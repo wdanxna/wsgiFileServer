@@ -28,7 +28,7 @@ class boxdecoder(object):
                     meta = meta.replace(origin_file_name,fix_file_name)
             else:
                 meta = urllib.unquote(meta)
-                print 'normal meta fix: '+meta
+                #print 'normal meta fix: '+meta
 
             environ['wsgi.input'] = StringIO(meta)
             environ['CONTENT_LENGTH'] = str(len(meta))
