@@ -56,6 +56,7 @@ def download(environ,start_response):
         except os.error:
             response_body = '{\"status\": \"0\",\"action\":\"/service/download\",\"description\":' \
                             + 'No permission to list directory' + '}'
+            return response_body
         filelist = json.dumps(list)
         response_body = '{\"status\": \"1\",\"action\":\"/service/download\",\"results\":' + filelist + '}'
 
