@@ -26,7 +26,7 @@
       <file leaf-file-name="newapptest.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newapptest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="51" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+            <state line="14" column="0" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,7 @@
       <file leaf-file-name="boxrouter.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/boxrouter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="19" selection-start="192" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+            <state line="21" column="41" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
               <folding />
             </state>
           </provider>
@@ -44,10 +44,8 @@
       <file leaf-file-name="boxlib.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/boxlib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="10" selection-start="1000" selection-end="1005" vertical-scroll-proportion="0.33277026" vertical-offset="223" max-vertical-offset="3480">
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state line="155" column="4" selection-start="6331" selection-end="6331" vertical-scroll-proportion="3.616505" vertical-offset="0" max-vertical-offset="3390">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,7 +53,7 @@
       <file leaf-file-name="boxdecoder.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/boxdecoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="17" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="765">
+            <state line="31" column="0" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
@@ -64,7 +62,7 @@
       <file leaf-file-name="FormHandler.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FormHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="42" selection-start="2438" selection-end="2438" vertical-scroll-proportion="-17.0" vertical-offset="728" max-vertical-offset="1320">
+            <state line="80" column="42" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.0" vertical-offset="1200" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -73,7 +71,7 @@
       <file leaf-file-name="FileHandler.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FileHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="33" selection-start="3112" selection-end="3112" vertical-scroll-proportion="-50.76923" vertical-offset="0" max-vertical-offset="1455">
+            <state line="91" column="33" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1500">
               <folding />
             </state>
           </provider>
@@ -93,14 +91,14 @@
         <option value="$PROJECT_DIR$/FormHandler.py" />
         <option value="$PROJECT_DIR$/boxrouter.py" />
         <option value="$PROJECT_DIR$/newapptest.py" />
-        <option value="$PROJECT_DIR$/boxlib.py" />
         <option value="$PROJECT_DIR$/boxdecoder.py" />
         <option value="$PROJECT_DIR$/FileHandler.py" />
+        <option value="$PROJECT_DIR$/boxlib.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="142" />
+    <option name="x" value="55" />
     <option name="y" value="22" />
     <option name="width" value="1865" />
     <option name="height" value="1058" />
@@ -319,7 +317,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="142" y="22" width="1865" height="1058" extended-state="0" />
+    <frame x="55" y="22" width="1865" height="1058" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -358,9 +356,7 @@
   <component name="editorHistoryManager">
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="20" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1665">
-          <folding />
-        </state>
+        <state line="29" column="20" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1665" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FileHandler.py">
@@ -397,9 +393,7 @@
     </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/596071422/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1952" column="8" selection-start="67619" selection-end="67619" vertical-scroll-proportion="12.978965" vertical-offset="21259" max-vertical-offset="76485">
-          <folding />
-        </state>
+        <state line="1952" column="8" selection-start="67619" selection-end="67619" vertical-scroll-proportion="12.978965" vertical-offset="21259" max-vertical-offset="76485" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/596071422/posix.py">
@@ -409,52 +403,48 @@
     </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/genericpath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="20" selection-start="829" selection-end="829" vertical-scroll-proportion="0.6796116" vertical-offset="0" max-vertical-offset="1650">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/boxdecoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="17" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="765">
-          <folding />
-        </state>
+        <state line="29" column="20" selection-start="829" selection-end="829" vertical-scroll-proportion="0.6796116" vertical-offset="0" max-vertical-offset="1650" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FormHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="42" selection-start="2438" selection-end="2438" vertical-scroll-proportion="-17.0" vertical-offset="728" max-vertical-offset="1320">
+        <state line="80" column="42" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.0" vertical-offset="1200" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FileHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="33" selection-start="3112" selection-end="3112" vertical-scroll-proportion="-50.76923" vertical-offset="0" max-vertical-offset="1455">
+        <state line="91" column="33" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/boxdecoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/newapptest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="51" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+        <state line="14" column="0" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/boxrouter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="19" selection-start="192" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+        <state line="21" column="41" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/boxlib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="10" selection-start="1000" selection-end="1005" vertical-scroll-proportion="0.33277026" vertical-offset="223" max-vertical-offset="3480">
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state line="155" column="4" selection-start="6331" selection-end="6331" vertical-scroll-proportion="3.616505" vertical-offset="0" max-vertical-offset="3390">
+          <folding />
         </state>
       </provider>
     </entry>
