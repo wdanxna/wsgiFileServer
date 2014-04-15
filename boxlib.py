@@ -2,9 +2,11 @@ import sys
 import os
 import re
 import json
+import shutil
 from cStringIO import StringIO
 from FormHandler import FormHandler
 from FileHandler import FileHandler
+
 
 formhandler = FormHandler()
 filehandler = FileHandler()
@@ -170,6 +172,20 @@ def delete(environ, start_response):
     start_response('200 OK', [("Content-Type","text/html"),("Content-Length",length)])
     return [body]
 
+def replace(environ, start_response):
+    formDatas = formhandler.getFormDatas(environ)
+    formDatasList = formDatas.split('&')
+    operationPath = {}
+    for element in formDatasList:
+        id, filename = element.split('=')
+        operationPath[id]=file_absolute_path + filename;
+
+    shutil.copyfile(operationPath['PATH'], operationPath['DESTINATION_PATH'])
+
+    body = '{\"status\": \"1\",\"action\":\"/service/delete\"}'
+    length = str(len(body))
+    start_response('200 OK', [("Content-Type","text/html"),("Content-Length",length)])
+    return [body]
 
 def getpatrolconfig(environ,start_response):
     '''

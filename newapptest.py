@@ -5,13 +5,14 @@ from boxrouter import boxrouter
 
 
 PORT = 8051
-router = boxrouter(('/upload',boxlib.upload),
-                   ('/download',boxlib.download),
-                   ('/move',boxlib.move),
-                   ('/delete',boxlib.delete),
-                   ('/getpatrolconfig',boxlib.getpatrolconfig),
-                   ('/gettrackfile',boxlib.gettrackfile),
-                   ('/getthumbnails',boxlib.get_thumbnails))
+router = boxrouter(('/upload',          boxlib.upload),
+                   ('/download',        boxlib.download),
+                   ('/move',            boxlib.move),
+                   ('/delete',          boxlib.delete),
+                   ('/replace',         boxlib.replace),
+                   ('/getpatrolconfig', boxlib.getpatrolconfig),
+                   ('/gettrackfile',    boxlib.gettrackfile),
+                   ('/getthumbnails',   boxlib.get_thumbnails))
 
 httpd = make_server('',PORT,router.start_route)
 print 'Starting up HTTP server on port %i...'%PORT
