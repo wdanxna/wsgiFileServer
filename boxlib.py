@@ -30,11 +30,13 @@ def download(environ,start_response):
     formdatalist = formdatas.split('&')
     #print 'real datas::: '+formdatas
     path = ''
+    isThumbnailPrefered = 0
     for element in formdatalist:
         key, value = element.split('=')
         if key == 'PATH':
             path = value
-            break
+        if key == 'ThumbnailPrefered':
+            isThumbnailPrefered = value
 
     head, tail = os.path.split(path)
     isfile = bool(tail.strip())
@@ -42,7 +44,7 @@ def download(environ,start_response):
     if not isfile:
         #request is not for a specific file but a directory
         #try to return the directory list
-        dir = file_absolute_path+path
+        dir = file_absolute_path + path
         try:
             list = os.listdir(dir)
             list = [elem for elem in list if not elem[0]=="."]
@@ -70,9 +72,16 @@ def download(environ,start_response):
             if not os.path.exists(link_path):
                 os.unlink(filepath)
         try:
-            file_size = os.path.getsize(filepath)
+            finallyFilePath = filepath
+
+            if isThumbnailPrefered:
+                fileThumbnailPath = filehandler.insertSubPath(-1,filepath,"thumbnails")  # a/b/c.jpg -> a/b/thumbnail/c.jpg
+                if filehandler.isFileExists(fileThumbnailPath):
+                    finallyFilePath = fileThumbnailPath
+
+            file_size = os.path.getsize(finallyFilePath)
             response_length = str(file_size)
-            file_stream = file(filepath,'r')
+            file_stream = file(finallyFilePath,'r')
             response_body = environ['wsgi.file_wrapper'](file_stream)
 
         except:
