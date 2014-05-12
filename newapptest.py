@@ -11,7 +11,9 @@ router = boxrouter(('/upload',boxlib.upload),
                    ('/delete',boxlib.delete),
                    ('/getpatrolconfig',boxlib.getpatrolconfig),
                    ('/gettrackfile',boxlib.gettrackfile),
-                   ('/getthumbnails',boxlib.get_thumbnails))
+                   ('/getthumbnails',boxlib.get_thumbnails),
+                   ('/rename',boxlib.rename),
+                   ('/filesize',boxlib.getfilesize))
 
 httpd = make_server('',PORT,router.start_route)
 print 'Starting up HTTP server on port %i...'%PORT

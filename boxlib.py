@@ -224,5 +224,27 @@ def getpatrolconfig(environ,start_response):
     start_response('500 ERROR',[("Content-Type","text/html"),('Access-Control-Allow-Origin','*')])
     return ['error']
 
+def getfilesize(environ, start_response):
+    formDatas = formhandler.getFormDatas(environ)
+    filepath = formDatas.split('=')[1]
+    if filepath:
+        size = os.path.getsize(file_absolute_path+filepath)
+        if size:
+            response_body = '{\"status\": \"1\",\"action\":\"/service/filesize\",\"results\":' + str(size) + '}'
+            start_response('200 OK',[('Content-Type','text/html'),("Content-Length",str(len(response_body))),('Access-Control-Allow-Origin','*')])
+            return [response_body]
+    start_response('404 NOT FOUND',[('Content-Type','text/html'),('Access-Control-Allow-Origin','*')])
+    return ['error']
+
 def gettrackfile(environ,start_response):
     return download(environ,start_response)
+
+def rename(environ, start_response):
+    formdatas = formhandler.getFormDatas(environ)
+    src,dst =  formdatas.split('=')
+    real_src = file_absolute_path + src
+    real_dst = file_absolute_path + dst
+    print 'mv '+ real_src + ' ' + real_dst
+    os.system('mv '+ real_src.replace(' ','\ ') + ' ' + real_dst.replace(' ','\ '))
+    start_response('200 OK', [("Content-Type","text/html"),('Access-Control-Allow-Origin','*')])
+    return ['ok']
