@@ -92,3 +92,9 @@ class FileHandler:
         self.saveFileFromFormData(fileData, file_name, filepath)
         print '######## a file upload absolute path : ' + filepath + '  file name : ' + file_name
         return filepath + file_name
+
+    def insertSubPath(self, index, path, subPath):
+        components = path.split('/')
+        components.insert(index,subPath)
+        result = '/'.join(components)
+        return result
