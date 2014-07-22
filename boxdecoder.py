@@ -15,7 +15,11 @@ class boxdecoder(object):
 
         def decode(environ):
             #decode path then put back decoded path
-            length = int(environ.get('CONTENT_LENGTH','0'))
+            contentLength = environ.get('CONTENT_LENGTH','0')
+            if (not contentLength):
+                length = environ['wsgi.input'].default_bufsize
+            else:
+                length = int(contentLength)
             meta = environ['wsgi.input'].read(length)
             #try to decode percentage
             if environ["PATH_INFO"]=="upload":

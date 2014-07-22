@@ -6,6 +6,11 @@ import shutil
 from cStringIO import StringIO
 from FormHandler import FormHandler
 from FileHandler import FileHandler
+from crawler2 import validate
+from crawler2 import crawler
+import Image
+# from PIL import ImageFile
+# ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 formhandler = FormHandler()
@@ -19,9 +24,15 @@ def upload(environ,start_response):
     filedata, parameters = formhandler.parseFormDataList(formlist)
     filename = formhandler.getFileName(formlist[1])
     filehandler.saveFileFromFormData(filedata,filename,file_absolute_path)
+    #fixme: unalble to generate thumbnial, got turncated error.
+    im = Image.open(file_absolute_path+filename)
+    im.thumbnail((128,128))
+    im = im.rotate(90)
+    thumb_path = filehandler.insertSubPath(-1,file_absolute_path+filename,"thumbnails")
+    im.save(thumb_path,"jpeg")
     response_body = '{\"status\": \"1\",\"action\":\"'+ file_absolute_path+filename + '\"}'
     start_response('200 OK',[('Content-Type','text/html'),('Content-Length',str(len(response_body)))])
-    return [response_body,]
+    return [response_body]
 
 def download(environ,start_response):
     response_body = ''
@@ -156,13 +167,24 @@ def move(environ,start_response):
 
     for element in formDatasList:
             src, dst = element.split('=')
-            os.system('ln -s ' + file_absolute_path+src.replace(' ','\ ') + ' ' + file_absolute_path+dst.replace(' ','\ '))
-            print "EXE: ln "+ file_absolute_path+src + ' ' + file_absolute_path+dst
-    #lastObject = formDatasList[-1]
-    #lastValues = lastObject.split('=')
-    body = '{\"status\": \"1\",\"action\":\"/service/move\"}'
+            valid_src_path = file_absolute_path+src.replace(' ','\ ')
+            valid_dst_path = file_absolute_path+dst.replace(' ','\ ')
+
+            valid_src_thumb_path = filehandler.insertSubPath(-1,valid_src_path,"thumbnails")
+            valid_dst_thumb_path = filehandler.insertSubPath(-1,valid_dst_path,"thumbnails")
+            try:
+                os.system('mv ' + valid_src_path + ' ' + valid_dst_path)
+                os.system('mv ' + valid_src_thumb_path + ' ' + valid_dst_thumb_path)
+                print "EXE: mv "+ valid_src_path + ' ' + valid_dst_path
+                print "ExE: mv "+ valid_src_thumb_path+ ' '+ valid_dst_thumb_path
+            except:
+                print 'invalid move operation'
+
+    body = '{\"status\":\"1\",' \
+            '\"action\":\"/service/move\",' \
+            '\"item\":\"'+src+'\"}'
     length = str(len(body))
-    start_response('200 OK',[("Content-Type","text/html"),("Content-Length",length)])
+    start_response('200 OK',[("Content-Type","text/html"),("Content-Length",length),('Access-Control-Allow-Origin','*')])
     return [body]
 
 def delete(environ, start_response):
@@ -173,7 +195,9 @@ def delete(environ, start_response):
 
     for element in form_data_list:
         id, filename = element.split('=')
+        del_path = file_absolute_path+filename
         filehandler.deleteFile(file_absolute_path+filename)
+        filehandler.deleteFile(filehandler.insertSubPath(-1,del_path,"thumbnails"))#delete thumb here
         print "delete: "+file_absolute_path+filename
 
     body = '{\"status\": \"1\",\"action\":\"/service/delete\"}'
@@ -266,10 +290,42 @@ def gettrackfile(environ,start_response):
 
 def rename(environ, start_response):
     formdatas = formhandler.getFormDatas(environ)
-    src,dst =  formdatas.split('=')
-    real_src = file_absolute_path + src
-    real_dst = file_absolute_path + dst
-    print 'mv '+ real_src + ' ' + real_dst
-    os.system('mv '+ real_src.replace(' ','\ ') + ' ' + real_dst.replace(' ','\ '))
+    formlist = formdatas.split('&')
+    for pair in formlist:
+        src,dst =  pair.split('=')
+        real_src = file_absolute_path + src
+        real_dst = file_absolute_path + dst
+        print 'mv '+ real_src + ' ' + real_dst
+        os.system('mv '+ real_src.replace(' ','\ ') + ' ' + real_dst.replace(' ','\ '))
     start_response('200 OK', [("Content-Type","text/html"),('Access-Control-Allow-Origin','*')])
     return ['ok']
+
+def struct(environ, start_response):
+    result_dic = crawler(file_absolute_path+"BusinessCards", validate(file_absolute_path+"BusinessCards/.ignore"))
+    start_response('200 OK',[("Content-Type","text/html"),('Access-Control-Allow-Origin','*')])
+    return [json.dumps(result_dic)]
+
+
+def createFolder(environ, start_response):
+    formdatas = formhandler.getFormDatas(environ)
+    parts = formdatas.split('&')
+    path = None
+    pwd = None
+    for part in parts:
+        key, val = part.split('=')
+        if key == 'path':
+            path = val
+        elif key == 'pwd':
+            pwd = val
+
+    real_create_path = file_absolute_path + path
+    os.mkdir(real_create_path)
+    real_thumb_path = real_create_path + "/thumbnails"
+    os.mkdir(real_thumb_path)
+
+    if pwd:
+        newf = open(real_create_path+'/.password','w')
+        newf.write(pwd+'\n')
+    start_response('200 OK',[("Content-Type","text/html"),('Access-Control-Allow-Origin','*')])
+    return ['ok']
+

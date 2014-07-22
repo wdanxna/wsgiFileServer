@@ -31,7 +31,7 @@ class FormHandler:
 
         #print str(indexVerbose)
 
-        result = fileDataVerbose[indexVerbose+4:-2]
+        result = fileDataVerbose[indexVerbose+4:]
 
         #print result
 
@@ -43,7 +43,7 @@ class FormHandler:
         try:
             length = int(environ.get('CONTENT_LENGTH', '0'))
         except ValueError:
-            length = 0
+            length = environ['wsgi.input'].default_bufsize
         if length != 0:
             body = StringIO(environ['wsgi.input'].read(length))
             environ['wsgi.input'] = body
