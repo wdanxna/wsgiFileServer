@@ -27,7 +27,6 @@ def upload(environ,start_response):
     #fixme: unalble to generate thumbnial, got turncated error.
     im = Image.open(file_absolute_path+filename)
     im.thumbnail((128,128))
-    im = im.rotate(90)
     thumb_path = filehandler.insertSubPath(-1,file_absolute_path+filename,"thumbnails")
     im.save(thumb_path,"jpeg")
     response_body = '{\"status\": \"1\",\"action\":\"'+ file_absolute_path+filename + '\"}'
