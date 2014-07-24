@@ -300,7 +300,9 @@ def rename(environ, start_response):
     return ['ok']
 
 def struct(environ, start_response):
-    result_dic = crawler(file_absolute_path+"BusinessCards", validate(file_absolute_path+"BusinessCards/.ignore"))
+    formdata = formhandler.getFormDatas(environ)
+    key, val = formdata.split('=')
+    result_dic = crawler(file_absolute_path+val, validate(file_absolute_path+val+"/.ignore"))
     start_response('200 OK',[("Content-Type","text/html"),('Access-Control-Allow-Origin','*')])
     return [json.dumps(result_dic)]
 
