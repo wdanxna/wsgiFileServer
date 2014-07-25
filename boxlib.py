@@ -8,7 +8,7 @@ from FormHandler import FormHandler
 from FileHandler import FileHandler
 from crawler2 import validate
 from crawler2 import crawler
-import Image
+from PIL import Image
 # from PIL import ImageFile
 # ImageFile.LOAD_TRUNCATED_IMAGES = True
 
@@ -28,8 +28,11 @@ def upload(environ,start_response):
     im = Image.open(file_absolute_path+filename)
     im.thumbnail((128,128))
     im = im.rotate(90)
-    thumb_path = filehandler.insertSubPath(-1,file_absolute_path+filename,"thumbnails")
-    im.save(thumb_path,"jpeg")
+    thumbnail_Image_path = filehandler.insertSubPath(-1,file_absolute_path+filename,"thumbnails")
+    thumbnail_path = filehandler.removePathComponet(-1,thumbnail_Image_path)
+    if not filehandler.isDirExists(thumbnail_path):
+        os.makedirs(thumbnail_path)
+    im.save(thumbnail_Image_path)
     response_body = '{\"status\": \"1\",\"action\":\"'+ file_absolute_path+filename + '\"}'
     start_response('200 OK',[('Content-Type','text/html'),('Content-Length',str(len(response_body)))])
     return [response_body]

@@ -98,3 +98,9 @@ class FileHandler:
         components.insert(index,subPath)
         result = '/'.join(components)
         return result
+
+    def removePathComponet(self, index, path):
+        components = path.split('/')
+        del components[index]
+        result = '/'.join(components)
+        return result
