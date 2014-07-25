@@ -27,12 +27,12 @@ def upload(environ,start_response):
     #fixme: unalble to generate thumbnial, got turncated error.
     im = Image.open(file_absolute_path+filename)
     im.thumbnail((128,128))
-    im = im.rotate(90)
     thumbnail_Image_path = filehandler.insertSubPath(-1,file_absolute_path+filename,"thumbnails")
     thumbnail_path = filehandler.removePathComponet(-1,thumbnail_Image_path)
     if not filehandler.isDirExists(thumbnail_path):
         os.makedirs(thumbnail_path)
     im.save(thumbnail_Image_path)
+
     response_body = '{\"status\": \"1\",\"action\":\"'+ file_absolute_path+filename + '\"}'
     start_response('200 OK',[('Content-Type','text/html'),('Content-Length',str(len(response_body)))])
     return [response_body]
@@ -304,7 +304,9 @@ def rename(environ, start_response):
     return ['ok']
 
 def struct(environ, start_response):
-    result_dic = crawler(file_absolute_path+"BusinessCards", validate(file_absolute_path+"BusinessCards/.ignore"))
+    formdata = formhandler.getFormDatas(environ)
+    key, val = formdata.split('=')
+    result_dic = crawler(file_absolute_path+val, validate(file_absolute_path+val+"/.ignore"))
     start_response('200 OK',[("Content-Type","text/html"),('Access-Control-Allow-Origin','*')])
     return [json.dumps(result_dic)]
 
