@@ -26,7 +26,14 @@ def upload(environ,start_response):
     filehandler.saveFileFromFormData(filedata,filename,file_absolute_path)
     #fixme: unalble to generate thumbnial, got turncated error.
     im = Image.open(file_absolute_path+filename)
-    im.thumbnail((128,128))
+    # im.thumbnail((128,128))
+    x, y = im.size
+    w, h = int(x*0.2), int(y*0.2)
+    if w < 128:
+        w = 128
+    if h < 128:
+        h = 128
+    im = im.resize((w,h))
     thumbnail_Image_path = filehandler.insertSubPath(-1,file_absolute_path+filename,"thumbnails")
     thumbnail_path = filehandler.removePathComponet(-1,thumbnail_Image_path)
     if not filehandler.isDirExists(thumbnail_path):
